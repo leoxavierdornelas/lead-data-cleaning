@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados - Lead Data Cleaning</title>
+</head>
+<body>
+    <h1>Métricas</h1>
+    <ul>
+        <li>Total de leads: {{ metrics.total_leads }}</li>
+        <li>Qualificados: {{ metrics.qualificados }}</li>
+        <li>Inválidos: {{ metrics.invalidos }}</li>
+        <li>% Qualificados: {{ metrics.percentual_qualificados }}%</li>
+        <li>% Inválidos: {{ metrics.percentual_invalidos }}%</li>
+    </ul>
+
+    <h2>Leads Qualificados</h2>
+    <table border="1">
+        <tr>
+            {% for key in qualificados[0].keys() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in qualificados %}
+        <tr>
+            {% for value in row.values() %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Leads Inválidos</h2>
+    <table border="1">
+        <tr>
+            {% for key in invalidos[0].keys() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in invalidos %}
+        <tr>
+            {% for value in row.values() %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
